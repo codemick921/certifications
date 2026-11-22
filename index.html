@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Certifications — Mickel Williams-Brown</title>
+<meta name="description" content="A running record of professional certifications, each one linked to its verification page.">
+<meta name="author" content="Mickel Williams-Brown">
+<meta name="theme-color" content="#FBFAF6">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Certifications — Mickel Williams-Brown">
+<meta property="og:description" content="A running record of professional certifications, each one linked to its verification page.">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap">
+<link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#certifications">Skip to certifications</a>
+
+<div class="sample-banner" id="sample-banner" hidden>
+  <p>
+    <strong>Sample credentials still in place.</strong>
+    Edit <code>data/certs.json</code> to replace them with your own before sharing this link.
+  </p>
+  <button type="button" class="sample-banner__close" id="sample-dismiss" aria-label="Dismiss sample data notice">&times;</button>
+</div>
+
+<header class="site-head">
+  <div class="wrap site-head__inner">
+    <a class="mark" href="/" aria-label="Home">
+      <span class="mark__text" id="brand-mark">MWB</span>
+    </a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#certifications">Certifications</a>
+      <a href="#in-progress">In progress</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero wrap">
+    <p class="eyebrow">Credential portfolio</p>
+    <h1 class="hero__name" id="hero-name">Mickel Williams-Brown</h1>
+    <p class="hero__lede" id="hero-lede">
+      Digital marketing lead working across paid media, CRM and measurement.
+      This is the running record of every certification I earn, each with its verification link.
+    </p>
+
+    <ul class="hero__links" id="hero-links">
+      <li><a href="mailto:hello@example.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+    </ul>
+  </section>
+
+  <section class="stats wrap" aria-label="Credential summary">
+    <dl class="stats__list">
+      <div class="stats__item">
+        <dt>Completed</dt>
+        <dd id="stat-completed">—</dd>
+      </div>
+      <div class="stats__item">
+        <dt>Issuers</dt>
+        <dd id="stat-issuers">—</dd>
+      </div>
+      <div class="stats__item">
+        <dt>In progress</dt>
+        <dd id="stat-progress">—</dd>
+      </div>
+      <div class="stats__item">
+        <dt>Most recent</dt>
+        <dd id="stat-latest">—</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="section wrap" id="certifications">
+    <div class="section__head">
+      <h2 class="section__title">Certifications</h2>
+      <p class="section__note" id="count-note">Loading&hellip;</p>
+    </div>
+
+    <div class="controls">
+      <div class="search">
+        <label class="visually-hidden" for="search">Search certifications</label>
+        <input type="search" id="search" placeholder="Search by title, issuer or skill" autocomplete="off">
+      </div>
+      <div class="chips" id="issuer-chips" role="group" aria-label="Filter by issuer"></div>
+    </div>
+
+    <ol class="grid" id="cert-grid"></ol>
+    <p class="empty" id="empty-state" hidden>
+      Nothing matches that yet. <button type="button" class="link-btn" id="clear-filters">Clear filters</button>
+    </p>
+    <noscript>
+      <p class="empty">
+        This page loads credentials from <code>data/certs.json</code>, which needs JavaScript.
+        Every credential is also listed in that file with its verification link.
+      </p>
+    </noscript>
+  </section>
+
+  <section class="section wrap" id="in-progress">
+    <div class="section__head">
+      <h2 class="section__title">In progress</h2>
+      <p class="section__note">Working through a self-set certification programme.</p>
+    </div>
+    <ol class="progress-list" id="progress-list"></ol>
+    <p class="empty" id="progress-empty" hidden>Nothing in the pipeline right now.</p>
+  </section>
+
+  <section class="section wrap" id="about">
+    <div class="section__head">
+      <h2 class="section__title">About</h2>
+    </div>
+    <div class="prose" id="about-body">
+      <p>
+        I work in digital marketing, mostly on the unglamorous half: campaign structure,
+        tracking, and the reporting that tells you whether any of it worked. The certifications
+        here are how I keep current with the platforms I actually use.
+      </p>
+    </div>
+  </section>
+
+  <section class="section wrap" id="contact">
+    <div class="section__head">
+      <h2 class="section__title">Contact</h2>
+    </div>
+    <div class="contact-block">
+      <p class="contact-block__line">
+        Best way to reach me is email. I answer everything.
+      </p>
+      <ul class="hero__links" id="contact-links">
+        <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+        <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot wrap">
+  <p>&copy; <span id="year">2026</span> <span id="foot-name">Mickel Williams-Brown</span></p>
+  <p class="site-foot__note">Built as static files, served by Cloudflare Pages.</p>
+</footer>
+
+<!-- Credential detail -->
+<div class="modal" id="modal" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+    <button type="button" class="modal__close" id="modal-close" aria-label="Close">&times;</button>
+    <div class="modal__head">
+      <p class="modal__issuer" id="modal-issuer"></p>
+      <h2 class="modal__title" id="modal-title"></h2>
+      <p class="modal__meta" id="modal-meta"></p>
+    </div>
+    <div class="modal__viewer" id="modal-viewer"></div>
+    <div class="modal__foot">
+      <ul class="tags" id="modal-tags"></ul>
+      <p class="modal__actions" id="modal-actions"></p>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

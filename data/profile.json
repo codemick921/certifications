@@ -1,0 +1,25 @@
+{
+  "name": "Mickel Williams-Brown",
+  "mark": "MWB",
+  "location": "London",
+  "lede": "Digital marketing lead working across paid media, CRM and measurement. Every certification I earn ends up here, with its verification link.",
+  "links": [
+    {
+      "label": "Email",
+      "href": "mailto:hello@example.com"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/REPLACE-ME"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/codemick921"
+    }
+  ],
+  "contactLine": "Best way to reach me is email. I answer everything.",
+  "about": [
+    "I work in digital marketing, mostly on the unglamorous half: campaign structure, tracking, and the reporting that tells you whether any of it worked.",
+    "The certifications here are how I keep current with the platforms I actually use. They're a mix of formal exams, platform academies, and courses I finished because a specific problem needed solving."
+  ]
+}

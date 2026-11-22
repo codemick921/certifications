@@ -1,0 +1,75 @@
+{
+  "updated": "2026-11-22",
+  "_readme": "Every entry here renders as a card. Required: id, title, issuer, date, status. Optional: category, credentialId, verifyUrl, badge, embed, skills, note. Set embed.type to image|iframe|pdf|none. Files placed in /certs can be referenced as /certs/filename.pdf. Delete the three entries marked \"placeholder\": true once you add your own.",
+  "certificates": [
+    {
+      "id": "canva-social-media-design",
+      "title": "Canva Certified: Social Media Design",
+      "issuer": "Canva",
+      "category": "Design",
+      "date": "2026-11",
+      "status": "completed",
+      "credentialId": "SAMPLE-0001",
+      "verifyUrl": "",
+      "badge": "/assets/img/sample-badge.svg",
+      "embed": { "type": "none" },
+      "skills": ["Social design", "Layout", "Brand consistency"],
+      "note": "Sample entry. Replace with your real credential.",
+      "placeholder": true
+    },
+    {
+      "id": "hubspot-inbound-marketing",
+      "title": "Inbound Marketing Certification",
+      "issuer": "HubSpot Academy",
+      "category": "Marketing",
+      "date": "2026-10",
+      "status": "completed",
+      "credentialId": "",
+      "verifyUrl": "",
+      "embed": { "type": "none" },
+      "skills": ["Inbound", "Content", "Lead nurture"],
+      "note": "Sample entry. Replace with your real credential.",
+      "placeholder": true
+    },
+    {
+      "id": "linkedin-learning-marketing-analytics",
+      "title": "Marketing Analytics Foundations",
+      "issuer": "LinkedIn Learning",
+      "category": "Analytics",
+      "date": "2026-09",
+      "status": "completed",
+      "credentialId": "",
+      "verifyUrl": "",
+      "embed": { "type": "none" },
+      "skills": ["Measurement", "Reporting"],
+      "note": "Sample entry. Replace with your real credential.",
+      "placeholder": true
+    },
+    {
+      "id": "google-analytics-4",
+      "title": "Google Analytics 4 Certification",
+      "issuer": "Google Skillshop",
+      "category": "Analytics",
+      "date": "",
+      "status": "in-progress",
+      "credentialId": "",
+      "verifyUrl": "",
+      "embed": { "type": "none" },
+      "skills": ["GA4", "Measurement"],
+      "note": "Working through the modules now."
+    },
+    {
+      "id": "google-ads-search",
+      "title": "Google Ads Search Certification",
+      "issuer": "Google Skillshop",
+      "category": "Paid media",
+      "date": "",
+      "status": "planned",
+      "credentialId": "",
+      "verifyUrl": "",
+      "embed": { "type": "none" },
+      "skills": ["Search", "Bidding"],
+      "note": "Next on the list."
+    }
+  ]
+}
