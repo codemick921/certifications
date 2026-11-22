@@ -89,6 +89,30 @@
     ].join(' ').toLowerCase();
   }
 
+  /* --------------------------------------------------------------- reveal */
+
+  var revealObserver = null;
+
+  function setupReveal() {
+    if (!('IntersectionObserver' in window)) return;
+    revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+  }
+
+  function observeReveals(scope) {
+    var nodes = (scope || document).querySelectorAll('[data-reveal]:not(.is-in)');
+    Array.prototype.forEach.call(nodes, function (node, index) {
+      if (!revealObserver) { node.classList.add('is-in'); return; }
+      node.style.transitionDelay = Math.min(index, 6) * 45 + 'ms';
+      revealObserver.observe(node);
+    });
+  }
+
   /* ------------------------------------------------------------ rendering */
 
   function renderProfile(profile) {
@@ -236,7 +260,7 @@
     ]);
 
     card.addEventListener('click', function () { openModal(cert.id, card); });
-    return el('li', {}, [card]);
+    return el('li', { 'data-reveal': '' }, [card]);
   }
 
   function renderGrid() {
@@ -253,7 +277,24 @@
     });
 
     grid.textContent = '';
-    visible.forEach(function (cert) { grid.appendChild(buildCard(cert)); });
+
+    // Group into year blocks so the page reads as a record over time.
+    var groups = [];
+    visible.forEach(function (cert) {
+      var year = String(cert.date || '').slice(0, 4) || 'Undated';
+      var last = groups[groups.length - 1];
+      if (!last || last.year !== year) groups.push({ year: year, certs: [] });
+      groups[groups.length - 1].certs.push(cert);
+    });
+
+    groups.forEach(function (group) {
+      var list = el('ol', { class: 'grid' });
+      group.certs.forEach(function (cert) { list.appendChild(buildCard(cert)); });
+      grid.appendChild(el('section', { class: 'year', 'data-reveal': '' }, [
+        el('h3', { class: 'year__num', text: group.year }),
+        list
+      ]));
+    });
 
     var filtering = state.issuer !== 'all' || Boolean(state.query);
     empty.hidden = visible.length > 0;
@@ -263,6 +304,8 @@
     if (!completed.length) note.textContent = 'No credentials added yet.';
     else if (filtering) note.textContent = visible.length + ' of ' + completed.length + ' shown';
     else note.textContent = completed.length + (completed.length === 1 ? ' credential' : ' credentials');
+
+    observeReveals(grid);
   }
 
   function renderProgress() {
@@ -275,7 +318,7 @@
 
     pending.forEach(function (cert) {
       var stateLabel = cert.status === 'planned' ? 'Next up' : 'In progress';
-      list.appendChild(el('li', { class: 'progress-item' }, [
+      list.appendChild(el('li', { class: 'progress-item', 'data-reveal': '' }, [
         el('span', {
           class: 'progress-item__state',
           'data-state': cert.status === 'planned' ? 'planned' : 'active',
@@ -473,6 +516,9 @@
     var yearNode = $('#year');
     if (yearNode) yearNode.textContent = String(new Date().getFullYear());
 
+    document.documentElement.classList.add('js-reveal');
+    setupReveal();
+
     var search = $('#search');
     var timer;
 
@@ -523,6 +569,7 @@
       renderFilters(state.certs);
       renderGrid();
       renderProgress();
+      observeReveals();
       injectSchema(state.profile, state.certs);
 
       var hasPlaceholders = state.certs.some(function (c) { return c.placeholder; });

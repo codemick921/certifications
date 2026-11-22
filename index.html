@@ -6,25 +6,29 @@
 <title>Certifications — Mickel Williams-Brown</title>
 <meta name="description" content="A running record of professional certifications, each one linked to its verification page.">
 <meta name="author" content="Mickel Williams-Brown">
-<meta name="theme-color" content="#FBFAF6">
+<meta name="theme-color" content="#F7F5EF">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Certifications — Mickel Williams-Brown">
 <meta property="og:description" content="A running record of professional certifications, each one linked to its verification page.">
+<meta property="og:image" content="/assets/img/og-image.png">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/assets/img/og-image.png">
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/favicon.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
 
 <a class="skip-link" href="#certifications">Skip to certifications</a>
+
+<div class="grain" aria-hidden="true"></div>
 
 <div class="sample-banner" id="sample-banner" hidden>
   <p>
@@ -37,6 +41,7 @@
 <header class="site-head">
   <div class="wrap site-head__inner">
     <a class="mark" href="/" aria-label="Home">
+      <span class="mark__badge" aria-hidden="true"></span>
       <span class="mark__text" id="brand-mark">MWB</span>
     </a>
     <nav class="site-nav" aria-label="Sections">
@@ -51,38 +56,40 @@
 <main id="main">
 
   <section class="hero wrap">
-    <p class="eyebrow">Credential portfolio</p>
-    <h1 class="hero__name" id="hero-name">Mickel Williams-Brown</h1>
-    <p class="hero__lede" id="hero-lede">
-      Digital marketing lead working across paid media, CRM and measurement.
-      This is the running record of every certification I earn, each with its verification link.
-    </p>
+    <div class="hero__main">
+      <p class="eyebrow">Credential record</p>
+      <h1 class="hero__name" id="hero-name">Mickel Williams-Brown</h1>
+      <p class="hero__lede" id="hero-lede">
+        Digital marketing lead working across paid media, CRM and measurement.
+        Every certification I earn ends up here, with its verification link.
+      </p>
+      <ul class="links" id="hero-links">
+        <li><a href="mailto:hello@example.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/mickelbrown/">LinkedIn</a></li>
+      </ul>
+    </div>
 
-    <ul class="hero__links" id="hero-links">
-      <li><a href="mailto:hello@example.com">Email</a></li>
-      <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
-    </ul>
-  </section>
-
-  <section class="stats wrap" aria-label="Credential summary">
-    <dl class="stats__list">
-      <div class="stats__item">
-        <dt>Completed</dt>
-        <dd id="stat-completed">—</dd>
-      </div>
-      <div class="stats__item">
-        <dt>Issuers</dt>
-        <dd id="stat-issuers">—</dd>
-      </div>
-      <div class="stats__item">
-        <dt>In progress</dt>
-        <dd id="stat-progress">—</dd>
-      </div>
-      <div class="stats__item">
-        <dt>Most recent</dt>
-        <dd id="stat-latest">—</dd>
-      </div>
-    </dl>
+    <aside class="record" aria-label="Record summary">
+      <p class="record__label">At a glance</p>
+      <dl class="record__grid">
+        <div class="record__cell">
+          <dt>Certified</dt>
+          <dd id="stat-completed">&mdash;</dd>
+        </div>
+        <div class="record__cell">
+          <dt>Issuers</dt>
+          <dd id="stat-issuers">&mdash;</dd>
+        </div>
+        <div class="record__cell">
+          <dt>In progress</dt>
+          <dd id="stat-progress">&mdash;</dd>
+        </div>
+      </dl>
+      <p class="record__foot">
+        <span class="record__foot-label">Most recent</span>
+        <span id="stat-latest">&mdash;</span>
+      </p>
+    </aside>
   </section>
 
   <section class="section wrap" id="certifications">
@@ -91,15 +98,16 @@
       <p class="section__note" id="count-note">Loading&hellip;</p>
     </div>
 
-    <div class="controls">
+    <div class="toolbar" id="toolbar">
       <div class="search">
         <label class="visually-hidden" for="search">Search certifications</label>
-        <input type="search" id="search" placeholder="Search by title, issuer or skill" autocomplete="off">
+        <input type="search" id="search" placeholder="Search title, issuer or skill" autocomplete="off">
       </div>
       <div class="chips" id="issuer-chips" role="group" aria-label="Filter by issuer"></div>
     </div>
 
-    <ol class="grid" id="cert-grid"></ol>
+    <div id="cert-grid"></div>
+
     <p class="empty" id="empty-state" hidden>
       Nothing matches that yet. <button type="button" class="link-btn" id="clear-filters">Clear filters</button>
     </p>
@@ -127,8 +135,7 @@
     <div class="prose" id="about-body">
       <p>
         I work in digital marketing, mostly on the unglamorous half: campaign structure,
-        tracking, and the reporting that tells you whether any of it worked. The certifications
-        here are how I keep current with the platforms I actually use.
+        tracking, and the reporting that tells you whether any of it worked.
       </p>
     </div>
   </section>
@@ -138,21 +145,27 @@
       <h2 class="section__title">Contact</h2>
     </div>
     <div class="contact-block">
-      <p class="contact-block__line">
+      <p class="contact-block__line" id="contact-line">
         Best way to reach me is email. I answer everything.
       </p>
-      <ul class="hero__links" id="contact-links">
+      <ul class="links" id="contact-links">
         <li><a href="mailto:hello@example.com">hello@example.com</a></li>
-        <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/mickelbrown/">LinkedIn</a></li>
       </ul>
     </div>
   </section>
 
 </main>
 
-<footer class="site-foot wrap">
-  <p>&copy; <span id="year">2026</span> <span id="foot-name">Mickel Williams-Brown</span></p>
-  <p class="site-foot__note">Built as static files, served by Cloudflare Pages.</p>
+<footer class="site-foot">
+  <div class="wrap site-foot__inner">
+    <div class="site-foot__brand">
+      <span class="mark__badge" aria-hidden="true"></span>
+      <span id="foot-name">Mickel Williams-Brown</span>
+    </div>
+    <p class="site-foot__note">Static files, served by Cloudflare Pages.</p>
+    <p class="site-foot__year">&copy; <span id="year">2026</span></p>
+  </div>
 </footer>
 
 <!-- Credential detail -->

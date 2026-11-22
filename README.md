@@ -88,6 +88,7 @@ shows a banner at the top so you can't ship them by accident.
 | `data/certs.json` | Every credential. The only file you edit regularly. |
 | `data/profile.json` | Name, headline, links, about paragraphs, contact line. |
 | `certs/` | Certificate PDFs, PNGs and badge images. |
+| `assets/img/og-image.png` | 1200x630 preview card for social shares. Regenerate if the name or headline changes. |
 | `index.html` | Page structure. |
 | `assets/css/styles.css` | All styling, including print styles. |
 | `assets/js/main.js` | Rendering, filtering, modal, schema markup. |
@@ -116,14 +117,23 @@ gives you.
 
 ## Design notes
 
-- Light editorial: warm paper `#FBFAF6`, near-black ink, one accent green `#1F4535`.
-- Serif headings (Newsreader), sans body (Inter), both from Google Fonts with a
-  system fallback so text renders before the webfont lands.
-- Hairline borders instead of cards with shadows. 1px grid gaps.
-- Keyboard: every card is a button, the dialog traps focus, Escape closes it.
+- Warm paper `#F7F5EF`, near-black ink `#14120E`, one deep green accent `#12392C`
+  and a warm ochre used only for the sample flags.
+- Instrument Serif for display type, Inter for everything else, from Google Fonts
+  with system fallbacks so text renders before the webfonts land.
+- Credentials group by year, with the year set large in the left gutter. The
+  toolbar sticks under the header while you scroll the list.
+- A light film grain sits over the page at 22 percent for a printed feel. It is
+  one fixed SVG layer, so it costs nothing to scroll.
+- Cards, year blocks and in-progress rows fade in on scroll. The hidden state is
+  only applied once JavaScript adds `.js-reveal`, so nothing is ever stranded
+  invisible, and the print stylesheet forces everything visible.
+- Keyboard: every card is a button, the dialog traps focus, Escape closes it,
+  focus returns to the card that opened it.
 - `prefers-reduced-motion` respected. `prefers-color-scheme` is not implemented,
   because the design is intentionally light-only.
-- Printing gives a clean two-column credential list for a CV attachment.
+- Each credential has a shareable link: `yoursite.com/#cert-<id>`.
+- Printing gives a clean two-column credential list you can attach to a CV.
 
 ## Adding a second page later
 
